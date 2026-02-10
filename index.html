@@ -146,6 +146,31 @@
     // window.location.href = `aisle${num}.html`;
   }
 </script>
+<script>
+const aisles = {
+  1: { name: "Flour", items: ["Atta", "Maida", "Rice Flour"], box: [10, 18, 90, 22] },
+  2: { name: "Lentils", items: ["Toor Dal", "Moong Dal"], box: [10, 23, 90, 27] },
+  3: { name: "Lentils", items: ["Chana Dal", "Urad Dal"], box: [10, 28, 90, 32] },
+  4: { name: "Spices", items: ["Chili Powder", "Turmeric"], box: [10, 33, 90, 37] },
+  5: { name: "Spices", items: ["Garam Masala", "Coriander"], box: [10, 38, 90, 42] },
+  6: { name: "Cooking Essentials", items: ["Oil", "Ghee"], box: [10, 43, 90, 47] }
+};
 
+function highlightAisle(num) {
+  const img = document.getElementById("storeImage");
+  const rect = img.getBoundingClientRect();
+  const [x1,y1,x2,y2] = aisles[num].box;
+
+  const highlight = document.getElementById("highlightBox");
+  highlight.style.display = "block";
+  highlight.style.left = rect.width * x1/100 + "px";
+  highlight.style.top = rect.height * y1/100 + "px";
+  highlight.style.width = rect.width * (x2-x1)/100 + "px";
+  highlight.style.height = rect.height * (y2-y1)/100 + "px";
+}
+</script>
+
+
+  
 </body>
 </html>
