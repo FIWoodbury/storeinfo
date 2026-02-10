@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="css/styles.css">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Store Layout</title>
 
 <style>
@@ -14,7 +13,6 @@
     padding: 15px;
     text-align: center;
   }
-
   .container {
     max-width: 1000px;
     margin: auto;
@@ -23,199 +21,31 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
-
   .lang-toggle button {
     margin: 5px;
     padding: 8px 14px;
     font-size: 14px;
     cursor: pointer;
   }
-
   .image-wrapper {
     position: relative;
     display: inline-block;
     margin: 20px 0;
   }
-
   img {
     max-width: 100%;
     border: 1px solid #ccc;
   }
-
   .highlight {
     position: absolute;
     border: 3px solid red;
     pointer-events: none;
     display: none;
   }
-
-  .buttons {
-    margin-top: 20px;
-  }
-
   .buttons button {
     width: 90%;
     max-width: 500px;
     padding: 14px;
     margin: 8px auto;
     font-size: 18px;
-    display: block;
-    background: #0066cc;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-
-  .buttons button:hover {
-    background: #004c99;
-  }
-</style>
-</head>
-
-<body>
-
-<div class="container">
-  <h2 id="title">🛒 Fresh India Woodbury - Store Layout</h2>
-
-  <!-- Language Toggle -->
-  <div class="lang-toggle">
-    <button onclick="setLang('en')">English</button>
-    <button onclick="setLang('ta')">தமிழ்</button>
-    <button onclick="setLang('hi')">हिंदी</button>
-  </div>
-
-  <!-- Image with clickable map -->
-  <div class="image-wrapper">
-    <img src="store-layout.jpg" usemap="#storemap" id="storeImage">
-    <div class="highlight" id="highlightBox"></div>
-
-    <input id="search" placeholder="Search item (e.g. atta)"
- style="width:90%;padding:12px;font-size:18px;">
-<p id="result"></p>
-
-    <script>
-function searchItem() {
-  const q = document.getElementById("search").value.toLowerCase();
-  for (let a in aisles) {
-    if (aisles[a].items.some(i => i.toLowerCase().includes(q))) {
-      highlightAisle(a);
-      document.getElementById("result").innerText =
-        `"${q}" is in Aisle ${a} – ${aisles[a].name}`;
-      return;
-    }
-  }
-  document.getElementById("result").innerText = "Item not found";
-}
-
-document.getElementById("search").addEventListener("keyup", searchItem);
-</script>
-
-    <button onclick="voiceSearch()">🎤 Speak</button>
-
-    <script>
-function voiceSearch() {
-  const rec = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-  rec.lang = currentLang === 'ta' ? 'ta-IN' : currentLang === 'hi' ? 'hi-IN' : 'en-US';
-
-  rec.onresult = e => {
-    const text = e.results[0][0].transcript;
-    document.getElementById("search").value = text;
-    searchItem();
-  };
-  rec.start();
-}
-</script>
-
-    
-    <map name="storemap">
-      <area shape="rect" coords="100,200,900,260" onclick="selectAisle(1)">
-      <area shape="rect" coords="100,270,900,330" onclick="selectAisle(2)">
-      <area shape="rect" coords="100,340,900,400" onclick="selectAisle(3)">
-      <area shape="rect" coords="100,410,900,470" onclick="selectAisle(4)">
-      <area shape="rect" coords="100,480,900,540" onclick="selectAisle(5)">
-      <area shape="rect" coords="100,550,900,610" onclick="selectAisle(6)">
-    </map>
-  </div>
-
-  <!-- Large QR-friendly buttons -->
-  <div class="buttons">
-    <button onclick="goToAisle(1)" id="a1">Aisle 1 – Flour</button>
-    <button onclick="goToAisle(2)" id="a2">Aisle 2 – Lentils</button>
-    <button onclick="goToAisle(3)" id="a3">Aisle 3 – Lentils</button>
-    <button onclick="goToAisle(4)" id="a4">Aisle 4 – Spices</button>
-    <button onclick="goToAisle(5)" id="a5">Aisle 5 – Spices</button>
-    <button onclick="goToAisle(6)" id="a6">Aisle 6 – Cooking Essentials</button>
-  </div>
-
-</div>
-
-<script>
-  const aisles = {
-    1: { en: "Aisle 1 – Flour", ta: "வழி 1 – மாவு", hi: "गलियारा 1 – आटा", box: [100,200,900,260] },
-    2: { en: "Aisle 2 – Lentils", ta: "வழி 2 – பருப்பு", hi: "गलियारा 2 – दालें", box: [100,270,900,330] },
-    3: { en: "Aisle 3 – Lentils", ta: "வழி 3 – பருப்பு", hi: "गलियारा 3 – दालें", box: [100,340,900,400] },
-    4: { en: "Aisle 4 – Spices", ta: "வழி 4 – மசாலா", hi: "गलियारा 4 – मसाले", box: [100,410,900,470] },
-    5: { en: "Aisle 5 – Spices", ta: "வழி 5 – மசாலா", hi: "गलियारा 5 – मसाले", box: [100,480,900,540] },
-    6: { en: "Aisle 6 – Cooking Essentials", ta: "வழி 6 – சமையல் பொருட்கள்", hi: "गलियारा 6 – रसोई सामग्री", box: [100,550,900,610] }
-  };
-
-  let currentLang = 'en';
-
-  function setLang(lang) {
-    currentLang = lang;
-    for (let i = 1; i <= 6; i++) {
-      document.getElementById('a'+i).innerText = aisles[i][lang];
-    }
-  }
-
-  function selectAisle(num) {
-    const box = aisles[num].box;
-    const highlight = document.getElementById('highlightBox');
-    highlight.style.display = 'block';
-    highlight.style.left = box[0] + 'px';
-    highlight.style.top = box[1] + 'px';
-    highlight.style.width = (box[2]-box[0]) + 'px';
-    highlight.style.height = (box[3]-box[1]) + 'px';
-  }
-
-  <script>
-function goToAisle(num) {
-  highlightAisle(num);
-
-  // Navigate after short delay so highlight is visible
-  setTimeout(() => {
-    window.location.href = `aisles/aisle${num}.html`;
-  }, 300);
-}
-</script>
-  }
-</script>
-<script>
-const aisles = {
-  1: { name: "Flour", items: ["Atta", "Maida", "Rice Flour"], box: [10, 18, 90, 22] },
-  2: { name: "Lentils", items: ["Toor Dal", "Moong Dal"], box: [10, 23, 90, 27] },
-  3: { name: "Lentils", items: ["Chana Dal", "Urad Dal"], box: [10, 28, 90, 32] },
-  4: { name: "Spices", items: ["Chili Powder", "Turmeric"], box: [10, 33, 90, 37] },
-  5: { name: "Spices", items: ["Garam Masala", "Coriander"], box: [10, 38, 90, 42] },
-  6: { name: "Cooking Essentials", items: ["Oil", "Ghee"], box: [10, 43, 90, 47] }
-};
-
-function highlightAisle(num) {
-  const img = document.getElementById("storeImage");
-  const rect = img.getBoundingClientRect();
-  const [x1,y1,x2,y2] = aisles[num].box;
-
-  const highlight = document.getElementById("highlightBox");
-  highlight.style.display = "block";
-  highlight.style.left = rect.width * x1/100 + "px";
-  highlight.style.top = rect.height * y1/100 + "px";
-  highlight.style.width = rect.width * (x2-x1)/100 + "px";
-  highlight.style.height = rect.height * (y2-y1)/100 + "px";
-}
-</script>
-
-
-  
-</body>
-</html>
+    display: bl
