@@ -1,0 +1,83 @@
+/* ===== Global ===== */
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 15px;
+  text-align: center;
+}
+
+/* ===== Layout ===== */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+img {
+  max-width: 100%;
+  border: 1px solid #ccc;
+}
+
+/* ===== Highlights ===== */
+.highlight {
+  position: absolute;
+  border: 3px solid red;
+  pointer-events: none;
+  display: none;
+}
+
+/* ===== You are here ===== */
+#youAreHere {
+  position: absolute;
+  top: 5%;
+  left: 45%;
+  background: red;
+  color: white;
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* ===== Buttons ===== */
+.buttons button {
+  width: 90%;
+  max-width: 500px;
+  padding: 14px;
+  margin: 8px auto;
+  font-size: 18px;
+  display: block;
+  background: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background: #004c99;
+}
+
+/* ===== Search ===== */
+input[type="text"] {
+  width: 90%;
+  padding: 12px;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+/* ===== Admin ===== */
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
