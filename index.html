@@ -179,10 +179,16 @@ function voiceSearch() {
     highlight.style.height = (box[3]-box[1]) + 'px';
   }
 
-  function goToAisle(num) {
-    selectAisle(num);
-    // optional navigation
-    // window.location.href = `aisle${num}.html`;
+  <script>
+function goToAisle(num) {
+  highlightAisle(num);
+
+  // Navigate after short delay so highlight is visible
+  setTimeout(() => {
+    window.location.href = `aisles/aisle${num}.html`;
+  }, 300);
+}
+</script>
   }
 </script>
 <script>
