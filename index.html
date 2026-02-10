@@ -89,6 +89,44 @@
     <img src="store-layout.jpg" usemap="#storemap" id="storeImage">
     <div class="highlight" id="highlightBox"></div>
 
+    <input id="search" placeholder="Search item (e.g. atta)"
+ style="width:90%;padding:12px;font-size:18px;">
+<p id="result"></p>
+
+    <script>
+function searchItem() {
+  const q = document.getElementById("search").value.toLowerCase();
+  for (let a in aisles) {
+    if (aisles[a].items.some(i => i.toLowerCase().includes(q))) {
+      highlightAisle(a);
+      document.getElementById("result").innerText =
+        `"${q}" is in Aisle ${a} – ${aisles[a].name}`;
+      return;
+    }
+  }
+  document.getElementById("result").innerText = "Item not found";
+}
+
+document.getElementById("search").addEventListener("keyup", searchItem);
+</script>
+
+    <button onclick="voiceSearch()">🎤 Speak</button>
+
+    <script>
+function voiceSearch() {
+  const rec = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+  rec.lang = currentLang === 'ta' ? 'ta-IN' : currentLang === 'hi' ? 'hi-IN' : 'en-US';
+
+  rec.onresult = e => {
+    const text = e.results[0][0].transcript;
+    document.getElementById("search").value = text;
+    searchItem();
+  };
+  rec.start();
+}
+</script>
+
+    
     <map name="storemap">
       <area shape="rect" coords="100,200,900,260" onclick="selectAisle(1)">
       <area shape="rect" coords="100,270,900,330" onclick="selectAisle(2)">
