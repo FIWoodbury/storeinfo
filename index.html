@@ -48,4 +48,136 @@
     padding: 14px;
     margin: 8px auto;
     font-size: 18px;
-    display: bl
+    display: block;
+    background: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .buttons button:hover {
+    background: #004c99;
+  }
+  #search {
+    width:90%;
+    padding:12px;
+    font-size:18px;
+    margin-top:10px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>🛒 Fresh India Woodbury – Store Layout</h2>
+
+  <!-- Language Toggle -->
+  <div class="lang-toggle">
+    <button onclick="setLang('en')">English</button>
+    <button onclick="setLang('ta')">தமிழ்</button>
+    <button onclick="setLang('hi')">हिंदी</button>
+  </div>
+
+  <!-- Store Image -->
+  <div class="image-wrapper">
+    <img src="store-layout.jpg" id="storeImage">
+    <div class="highlight" id="highlightBox"></div>
+  </div>
+
+  <!-- Search -->
+  <input id="search" placeholder="Search item (e.g. atta)">
+  <p id="result"></p>
+
+  <!-- Aisle Buttons -->
+  <div class="buttons">
+    <button onclick="goToAisle(1)" id="a1">Aisle 1 – Flour</button>
+    <button onclick="goToAisle(2)" id="a2">Aisle 2 – Lentils</button>
+    <button onclick="goToAisle(3)" id="a3">Aisle 3 – Lentils</button>
+    <button onclick="goToAisle(4)" id="a4">Aisle 4 – Spices</button>
+    <button onclick="goToAisle(5)" id="a5">Aisle 5 – Spices</button>
+    <button onclick="goToAisle(6)" id="a6">Aisle 6 – Cooking Essentials</button>
+  </div>
+</div>
+
+<script>
+/* ================= DATA ================= */
+const aisles = {
+  1: {
+    name:{en:"Flour",ta:"மாவு",hi:"आटा"},
+    items:["Atta","Maida","Rice Flour"],
+    box:[10,18,90,22]
+  },
+  2: {
+    name:{en:"Lentils",ta:"பருப்பு",hi:"दालें"},
+    items:["Toor Dal","Moong Dal"],
+    box:[10,23,90,27]
+  },
+  3: {
+    name:{en:"Lentils",ta:"பருப்பு",hi:"दालें"},
+    items:["Chana Dal","Urad Dal"],
+    box:[10,28,90,32]
+  },
+  4: {
+    name:{en:"Spices",ta:"மசாலா",hi:"मसाले"},
+    items:["Turmeric","Chili Powder"],
+    box:[10,33,90,37]
+  },
+  5: {
+    name:{en:"Spices",ta:"மசாலா",hi:"मसाले"},
+    items:["Garam Masala","Coriander"],
+    box:[10,38,90,42]
+  },
+  6: {
+    name:{en:"Cooking Essentials",ta:"சமையல் பொருட்கள்",hi:"रसोई सामग्री"},
+    items:["Oil","Ghee"],
+    box:[10,43,90,47]
+  }
+};
+
+let currentLang = "en";
+
+/* ================= FUNCTIONS ================= */
+function setLang(lang){
+  currentLang = lang;
+  Object.keys(aisles).forEach(i=>{
+    document.getElementById("a"+i).innerText =
+      `Aisle ${i} – ${aisles[i].name[lang]}`;
+  });
+}
+
+function highlightAisle(num){
+  const img = document.getElementById("storeImage");
+  const rect = img.getBoundingClientRect();
+  const [x1,y1,x2,y2] = aisles[num].box;
+  const h = document.getElementById("highlightBox");
+
+  h.style.display = "block";
+  h.style.left   = rect.width  * x1/100 + "px";
+  h.style.top    = rect.height * y1/100 + "px";
+  h.style.width  = rect.width  * (x2-x1)/100 + "px";
+  h.style.height = rect.height * (y2-y1)/100 + "px";
+}
+
+function goToAisle(num){
+  highlightAisle(num);
+  setTimeout(()=>{
+    window.location.href = `aisles/aisle${num}.html`;
+  },300);
+}
+
+document.getElementById("search").addEventListener("keyup",()=>{
+  const q = search.value.toLowerCase();
+  for(let i in aisles){
+    if(aisles[i].items.some(x=>x.toLowerCase().includes(q))){
+      highlightAisle(i);
+      result.innerText = `"${q}" is in Aisle ${i} – ${aisles[i].name[currentLang]}`;
+      return;
+    }
+  }
+  result.innerText = "Item not found";
+});
+</script>
+
+</body>
+</html>
