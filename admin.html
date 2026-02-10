@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html><body>
+<h2>Admin Editor</h2>
+<textarea style="width:100%;height:300px" id="t"></textarea>
+<script>
+fetch('data/aisles.json').then(r=>r.text()).then(x=>t.value=x);
+</script>
+</body></html>

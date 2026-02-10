@@ -1,0 +1,242 @@
+{
+  "1": {
+    "name_en": "Aisle 1",
+    "name_ta": "வழி 1",
+    "name_hi": "गलியारा 1",
+    "items": [
+      "Item 1A",
+      "Item 1B"
+    ],
+    "box": [
+      5,
+      4,
+      95,
+      7
+    ]
+  },
+  "2": {
+    "name_en": "Aisle 2",
+    "name_ta": "வழி 2",
+    "name_hi": "गलியारा 2",
+    "items": [
+      "Item 2A",
+      "Item 2B"
+    ],
+    "box": [
+      5,
+      8,
+      95,
+      11
+    ]
+  },
+  "3": {
+    "name_en": "Aisle 3",
+    "name_ta": "வழி 3",
+    "name_hi": "गलியारा 3",
+    "items": [
+      "Item 3A",
+      "Item 3B"
+    ],
+    "box": [
+      5,
+      12,
+      95,
+      15
+    ]
+  },
+  "4": {
+    "name_en": "Aisle 4",
+    "name_ta": "வழி 4",
+    "name_hi": "गलியारा 4",
+    "items": [
+      "Item 4A",
+      "Item 4B"
+    ],
+    "box": [
+      5,
+      16,
+      95,
+      19
+    ]
+  },
+  "5": {
+    "name_en": "Aisle 5",
+    "name_ta": "வழி 5",
+    "name_hi": "गलியारा 5",
+    "items": [
+      "Item 5A",
+      "Item 5B"
+    ],
+    "box": [
+      5,
+      20,
+      95,
+      23
+    ]
+  },
+  "6": {
+    "name_en": "Aisle 6",
+    "name_ta": "வழி 6",
+    "name_hi": "गलியारा 6",
+    "items": [
+      "Item 6A",
+      "Item 6B"
+    ],
+    "box": [
+      5,
+      24,
+      95,
+      27
+    ]
+  },
+  "7": {
+    "name_en": "Aisle 7",
+    "name_ta": "வழி 7",
+    "name_hi": "गलியारा 7",
+    "items": [
+      "Item 7A",
+      "Item 7B"
+    ],
+    "box": [
+      5,
+      28,
+      95,
+      31
+    ]
+  },
+  "8": {
+    "name_en": "Aisle 8",
+    "name_ta": "வழி 8",
+    "name_hi": "गलியारा 8",
+    "items": [
+      "Item 8A",
+      "Item 8B"
+    ],
+    "box": [
+      5,
+      32,
+      95,
+      35
+    ]
+  },
+  "9": {
+    "name_en": "Aisle 9",
+    "name_ta": "வழி 9",
+    "name_hi": "गलியारा 9",
+    "items": [
+      "Item 9A",
+      "Item 9B"
+    ],
+    "box": [
+      5,
+      36,
+      95,
+      39
+    ]
+  },
+  "10": {
+    "name_en": "Aisle 10",
+    "name_ta": "வழி 10",
+    "name_hi": "गलியारा 10",
+    "items": [
+      "Item 10A",
+      "Item 10B"
+    ],
+    "box": [
+      5,
+      40,
+      95,
+      43
+    ]
+  },
+  "11": {
+    "name_en": "Aisle 11",
+    "name_ta": "வழி 11",
+    "name_hi": "गलியारा 11",
+    "items": [
+      "Item 11A",
+      "Item 11B"
+    ],
+    "box": [
+      5,
+      44,
+      95,
+      47
+    ]
+  },
+  "12": {
+    "name_en": "Aisle 12",
+    "name_ta": "வழி 12",
+    "name_hi": "गलியारा 12",
+    "items": [
+      "Item 12A",
+      "Item 12B"
+    ],
+    "box": [
+      5,
+      48,
+      95,
+      51
+    ]
+  },
+  "13": {
+    "name_en": "Aisle 13",
+    "name_ta": "வழி 13",
+    "name_hi": "गलியारा 13",
+    "items": [
+      "Item 13A",
+      "Item 13B"
+    ],
+    "box": [
+      5,
+      52,
+      95,
+      55
+    ]
+  },
+  "14": {
+    "name_en": "Aisle 14",
+    "name_ta": "வழி 14",
+    "name_hi": "गलியारा 14",
+    "items": [
+      "Item 14A",
+      "Item 14B"
+    ],
+    "box": [
+      5,
+      56,
+      95,
+      59
+    ]
+  },
+  "15": {
+    "name_en": "Aisle 15",
+    "name_ta": "வழி 15",
+    "name_hi": "गलியारा 15",
+    "items": [
+      "Item 15A",
+      "Item 15B"
+    ],
+    "box": [
+      5,
+      60,
+      95,
+      63
+    ]
+  },
+  "16": {
+    "name_en": "Aisle 16",
+    "name_ta": "வழி 16",
+    "name_hi": "गलியारा 16",
+    "items": [
+      "Item 16A",
+      "Item 16B"
+    ],
+    "box": [
+      5,
+      64,
+      95,
+      67
+    ]
+  }
+}
