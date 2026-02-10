@@ -63,6 +63,20 @@ img {
   cursor: pointer;
 }
 
+.aisle-btn {
+  display: block;
+  width: 90%;
+  max-width: 500px;
+  padding: 14px;
+  margin: 8px auto;
+  font-size: 18px;
+  background: #0066cc;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+
 .buttons button:hover {
   background: #004c99;
 }
