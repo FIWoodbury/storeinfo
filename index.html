@@ -1,73 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Store Layout</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Store Layout</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 15px;
+    text-align: center;
+  }
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      background: #ffffff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+  .container {
+    max-width: 1000px;
+    margin: auto;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      border: 1px solid #ccc;
-      margin-bottom: 20px;
-    }
+  .lang-toggle button {
+    margin: 5px;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+  }
 
-    .aisle-links {
-      display: inline-block;
-      text-align: left;
-    }
+  .image-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 20px 0;
+  }
 
-    .aisle-links a {
-      display: block;
-      padding: 8px 0;
-      font-size: 16px;
-      color: #0066cc;
-      text-decoration: none;
-      font-weight: 500;
-    }
+  img {
+    max-width: 100%;
+    border: 1px solid #ccc;
+  }
 
-    .aisle-links a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  .highlight {
+    position: absolute;
+    border: 3px solid red;
+    pointer-events: none;
+    display: none;
+  }
+
+  .buttons {
+    margin-top: 20px;
+  }
+
+  .buttons button {
+    width: 90%;
+    max-width: 500px;
+    padding: 14px;
+    margin: 8px auto;
+    font-size: 18px;
+    display: block;
+    background: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .buttons button:hover {
+    background: #004c99;
+  }
+</style>
 </head>
 
 <body>
 
-  <div class="container">
-    <h1>🛒 Store Layout</h1>
+<div class="container">
+  <h2 id="title">🛒 Store Layout</h2>
 
-    <!-- Store Layout Image -->
-    <img src="store-layout.jpg" alt="Store Layout Image">
-
-    <!-- Aisle Links -->
-    <div class="aisle-links">
-      <a href="aisle1.html">Aisle 1 – Flour</a>
-      <a href="aisle2.html">Aisle 2 – Lentils</a>
-      <a href="aisle3.html">Aisle 3 – Lentils</a>
-      <a href="aisle4.html">Aisle 4 – Spices</a>
-      <a href="aisle5.html">Aisle 5 – Spices</a>
-      <a href="aisle6.html">Aisle 6 – Cooking Essentials</a>
-    </div>
+  <!-- Language Toggle -->
+  <div class="lang-toggle">
+    <button onclick="setLang('en')">English</button>
+    <button onclick="setLang('ta')">தமிழ்</button>
+    <button onclick="setLang('hi')">हिंदी</button>
   </div>
+
+  <!-- Image with clickable map -->
+  <div class="image-wrapper">
+    <img src="store-layout.jpg" usemap="#storemap" id="storeImage">
+    <div class="highlight" id="highlightBox"></div>
+
+    <map name="storemap">
+      <area shape="rect" coords="100,200,900,260" onclick="selectAisle(1)">
+      <area shape="rect" coords="100,270,900,330" onclick="selectAisle(2)">
+      <area shape="rect" coords="100,340,900,400" onclick="selectAisle(3)">
+      <area shape="rect" coords="100,410,900,470" onclick="selectAisle(4)">
+      <area shape="rect" coords="100,480,900,540" onclick="selectAisle(5)">
+      <area shape="rect" coords="100,550,900,610" onclick="selectAisle(6)">
+    </map>
+  </div>
+
+  <!-- Large QR-friendly buttons -->
+  <div class="buttons">
+    <button onclick="goToAisle(1)" id="a1">Aisle 1 – Flour</button>
+    <button onclick="goToAisle(2)" id="a2">Aisle 2 – Lentils</button>
+    <button onclick="goToAisle(3)" id="a3">Aisle 3 – Lentils</button>
+    <button onclick="goToAisle(4)" id="a4">Aisle 4 – Spices</button>
+    <button onclick="goToAisle(5)" id="a5">Aisle 5 – Spices</button>
+    <button onclick="goToAisle(6)" id="a6">Aisle 6 – Cooking Essentials</button>
+  </div>
+
+</div>
+
+<script>
+  const aisles = {
+    1: { en: "Aisle 1 – Flour", ta: "வழி 1 – மாவு", hi: "गलियारा 1 – आटा", box: [100,200,900,260] },
+    2: { en: "Aisle 2 – Lentils", ta: "வழி 2 – பருப்பு", hi: "गलियारा 2 – दालें", box: [100,270,900,330] },
+    3: { en: "Aisle 3 – Lentils", ta: "வழி 3 – பருப்பு", hi: "गलियारा 3 – दालें", box: [100,340,900,400] },
+    4: { en: "Aisle 4 – Spices", ta: "வழி 4 – மசாலா", hi: "गलियारा 4 – मसाले", box: [100,410,900,470] },
+    5: { en: "Aisle 5 – Spices", ta: "வழி 5 – மசாலா", hi: "गलियारा 5 – मसाले", box: [100,480,900,540] },
+    6: { en: "Aisle 6 – Cooking Essentials", ta: "வழி 6 – சமையல் பொருட்கள்", hi: "गलियारा 6 – रसोई सामग्री", box: [100,550,900,610] }
+  };
+
+  let currentLang = 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    for (let i = 1; i <= 6; i++) {
+      document.getElementById('a'+i).innerText = aisles[i][lang];
+    }
+  }
+
+  function selectAisle(num) {
+    const box = aisles[num].box;
+    const highlight = document.getElementById('highlightBox');
+    highlight.style.display = 'block';
+    highlight.style.left = box[0] + 'px';
+    highlight.style.top = box[1] + 'px';
+    highlight.style.width = (box[2]-box[0]) + 'px';
+    highlight.style.height = (box[3]-box[1]) + 'px';
+  }
+
+  function goToAisle(num) {
+    selectAisle(num);
+    // optional navigation
+    // window.location.href = `aisle${num}.html`;
+  }
+</script>
 
 </body>
 </html>
