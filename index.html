@@ -2,159 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Neighborhood Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Store Layout</title>
 
   <style>
     body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f5f5;
-      color: #333;
-    }
-
-    header {
-      background: #1f2933;
-      color: #fff;
-      padding: 16px;
+      padding: 20px;
       text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
-
-    header p {
-      margin: 6px 0 0;
-      font-size: 0.95rem;
-      opacity: 0.9;
     }
 
     .container {
-      padding: 20px;
-      max-width: 1100px;
+      max-width: 1000px;
       margin: auto;
-    }
-
-    .section-title {
-      font-size: 1.4rem;
-      margin-bottom: 12px;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 6px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-
-    .card {
-      background: #fff;
+      background: #ffffff;
+      padding: 20px;
       border-radius: 8px;
-      padding: 16px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 1.1rem;
-    }
-
-    .card p {
-      margin: 4px 0;
-      font-size: 0.9rem;
-    }
-
-    .price {
-      margin-top: 10px;
-      font-weight: bold;
-      color: #0f766e;
-    }
-
-    footer {
-      background: #1f2933;
-      color: #fff;
-      text-align: center;
-      padding: 14px;
-      margin-top: 30px;
-      font-size: 0.85rem;
-    }
-
-    .info {
-      background: #e5f6f5;
-      border-left: 4px solid #0f766e;
-      padding: 12px;
+    img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
       margin-bottom: 20px;
-      border-radius: 4px;
+    }
+
+    .aisle-links {
+      display: inline-block;
+      text-align: left;
+    }
+
+    .aisle-links a {
+      display: block;
+      padding: 8px 0;
+      font-size: 16px;
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .aisle-links a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Neighborhood Market</h1>
-    <p>Fresh • Local • Everyday Essentials</p>
-  </header>
-
   <div class="container">
+    <h1>🛒 Store Layout</h1>
 
-    <div class="info">
-      📍 Open Daily: 8:00 AM – 9:00 PM <br/>
-      📞 Contact: (555) 123-4567
+    <!-- Store Layout Image -->
+    <img src="store-layout.jpg" alt="Store Layout Image">
+
+    <!-- Aisle Links -->
+    <div class="aisle-links">
+      <a href="aisle1.html">Aisle 1 – Flour</a>
+      <a href="aisle2.html">Aisle 2 – Lentils</a>
+      <a href="aisle3.html">Aisle 3 – Lentils</a>
+      <a href="aisle4.html">Aisle 4 – Spices</a>
+      <a href="aisle5.html">Aisle 5 – Spices</a>
+      <a href="aisle6.html">Aisle 6 – Cooking Essentials</a>
     </div>
-
-    <div class="section">
-      <div class="section-title">🥦 Fresh Produce</div>
-      <div class="grid">
-        <div class="card">
-          <h3>Apples</h3>
-          <p>Fresh & crisp</p>
-          <div class="price">$2.99 / lb</div>
-        </div>
-        <div class="card">
-          <h3>Bananas</h3>
-          <p>Organic</p>
-          <div class="price">$1.29 / lb</div>
-        </div>
-        <div class="card">
-          <h3>Tomatoes</h3>
-          <p>Vine-ripened</p>
-          <div class="price">$2.49 / lb</div>
-        </div>
-      </div>
-    </div>
-
-    <br/>
-
-    <div class="section">
-      <div class="section-title">🥛 Dairy & Essentials</div>
-      <div class="grid">
-        <div class="card">
-          <h3>Milk</h3>
-          <p>1 Gallon</p>
-          <div class="price">$3.79</div>
-        </div>
-        <div class="card">
-          <h3>Eggs</h3>
-          <p>Free-range (12 ct)</p>
-          <div class="price">$4.29</div>
-        </div>
-        <div class="card">
-          <h3>Bread</h3>
-          <p>Whole wheat</p>
-          <div class="price">$2.99</div>
-        </div>
-      </div>
-    </div>
-
   </div>
-
-  <footer>
-    © 2026 Neighborhood Market • Thank you for supporting local
-  </footer>
 
 </body>
 </html>
